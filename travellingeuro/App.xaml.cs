@@ -37,6 +37,7 @@ namespace travellingeuro
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            //Pages
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<PresentationPage, PresentationPageViewModel>();
@@ -46,7 +47,9 @@ namespace travellingeuro
             containerRegistry.RegisterForNavigation<SpecimenPage, SpecimenPageViewModel>();
             containerRegistry.RegisterForNavigation<AddNote, AddNoteViewModel>();
             containerRegistry.RegisterForNavigation<ViewUpload, ViewUploadViewModel>();
-            
+            containerRegistry.RegisterForNavigation<Stats, StatsViewModel>();
+            containerRegistry.RegisterForNavigation<MapNotePage, MapNotePageViewModel>();
+
             //Services
             containerRegistry.Register<IDialogService, DialogService>();
             containerRegistry.Register<IRequestService, RequestService>();
@@ -57,10 +60,6 @@ namespace travellingeuro
             containerRegistry.Register<IAddNoteService, AddNoteService>();
             containerRegistry.Register<ISearchPlace, SearchPlace>();
             containerRegistry.Register<INotificationService, NotificationService>();
-
-
-
-
             
         }
     }

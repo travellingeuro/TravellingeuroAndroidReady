@@ -1,3 +1,4 @@
+using Syncfusion.SfMaps.XForms.iOS;
 using Syncfusion.XForms.iOS.Graphics;
 using Syncfusion.XForms.iOS.ComboBox;
 using Syncfusion.XForms.iOS.Border;
@@ -26,7 +27,8 @@ namespace travellingeuro.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjM4MzQwQDMxMzgyZTMxMmUzMFJtcjh3WkhxNGc5MEpNT29sb3BUeGdkQS91MnRqeGl1S3VDanpKUEYwMVk9");
-            global::Xamarin.Forms.Forms.Init();
+global::Xamarin.Forms.Forms.Init();
+SfMapsRenderer.Init();
             MobileAds.SharedInstance.Start(CompletionHandler);
             SfGradientViewRenderer.Init();
             SfBorderRenderer.Init();

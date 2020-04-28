@@ -164,7 +164,7 @@
                                 <!--  View of each card item  -->
                                 <StackLayout BackgroundColor="{DynamicResource Gray-White}" Spacing="0">
 
-                                    <Grid Margin="16,8,8,8"  ColumnSpacing="0" RowSpacing="0" >
+                                    <Grid Margin="16,8,0,8"  ColumnSpacing="0" RowSpacing="0" >
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="*"/>
@@ -193,7 +193,7 @@
                                             <!--  Upload Date  -->
                                             <Label 
                                                     FontFamily="{StaticResource Montserrat-Medium}"
-                                                    FontSize="{DynamicResource Sixteen}" 
+                                                    FontSize="{DynamicResource Ten}" 
                                                     LineHeight="{OnPlatform Android=1.5,
                                                                              Default=-1}"
                                                     Text="{Binding UploadDate, StringFormat='{}{0:dd/MM/yyyy}'}"
@@ -202,7 +202,7 @@
                                             <!--  Upload address  -->
                                             <Label 
                                                     FontFamily="{StaticResource Montserrat-Medium}"
-                                                    FontSize="{DynamicResource Fourteen}"
+                                                    FontSize="{DynamicResource Eight}"
                                                     LineHeight="{OnPlatform Android=1.25,
                                                                         Default=-1}"
                                                     Text="{Binding Address}"
@@ -211,7 +211,7 @@
                                             <!--  Comments  -->
                                             <Label 
                                                      FontFamily="{StaticResource Montserrat-Medium}"
-                                                     FontSize="{DynamicResource Fourteen}"
+                                                     FontSize="{DynamicResource Ten}"
                                                      LineHeight="{OnPlatform Android=1.25,
                                                      Default=-1}"
                                                      Text="{Binding Comments}"
