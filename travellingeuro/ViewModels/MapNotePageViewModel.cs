@@ -87,16 +87,18 @@ namespace travellingeuro.ViewModels
 				var imagepicker = new ImagePicker();
 
 				foreach (Uploads upload in Uploads)
-				{ 										
-					var marker = new CustomMarker();
-					marker.Latitude = upload.Latitude.ToString();
-					marker.Longitude = upload.Longitude.ToString();
-					marker.Label = upload.Comments;
-					marker.Address = upload.Address;
-					marker.Date = upload.UploadDate;
-					marker.Image = imagepicker.Imagepicker(upload.Value);
-					Pins.Add(marker);                     
-					Points.Add(new Point((double)upload.Latitude,(double)upload.Longitude));                    
+				{
+                    var marker = new CustomMarker
+                    {
+                        Latitude = upload.Latitude.ToString(),
+                        Longitude = upload.Longitude.ToString(),
+                        Label = upload.Comments,
+                        Address = upload.Address,
+                        Date = upload.UploadDate,
+                        Image = imagepicker.Imagepicker(upload.Value)
+                    };
+                    Pins.Add(marker);
+                    Points.Add(new Point((double)upload.Latitude,(double)upload.Longitude));                    
 				}
 			}
 		}
