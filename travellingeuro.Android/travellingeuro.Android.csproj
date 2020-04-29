@@ -77,16 +77,16 @@
       <Version>12.0.3</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Buttons">
-      <Version>18.1.0.45</Version>
+      <Version>18.1.0.46</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Core">
-      <Version>18.1.0.45</Version>
+      <Version>18.1.0.46</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox">
-      <Version>18.1.0.45</Version>
+      <Version>18.1.0.46</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfMaps">
-      <Version>18.1.0.45</Version>
+      <Version>18.1.0.46</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Media">
       <Version>5.0.1</Version>
@@ -115,6 +115,7 @@
     <Compile Include="Renderers\BorderlessEntryRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\UIFontIcons.ttf" />
@@ -240,6 +241,14 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\pin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\eurofade.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\eurofade.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\eurofade.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\eurofade.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\eurofade.png" />
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
