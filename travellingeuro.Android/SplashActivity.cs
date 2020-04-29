@@ -6,7 +6,7 @@ using Android.Support.V7.App;
 
 namespace travellingeuro.Droid
 {
-    [Activity(Theme = "@style/MyTheme.Splash", Label = "SplashActivity", MainLauncher = true, NoHistory = true)]
+    [Activity(Theme = "@style/MyTheme.Splash", Label = "travellingeuro", MainLauncher = true, NoHistory = true)]
     public class SplashActivity :AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
