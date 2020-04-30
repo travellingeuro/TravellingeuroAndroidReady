@@ -7,7 +7,7 @@
              x:Class="travellingeuro.Views.PresentationPage"                 
              prism:ViewModelLocator.AutowireViewModel="True"
              NavigationPage.HasNavigationBar="False"
-             Padding="20,20,20,20">
+             Padding="20,40,20,20">
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary Source="Sync/Styles.xaml" />

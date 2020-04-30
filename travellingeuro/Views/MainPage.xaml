@@ -20,7 +20,7 @@
         <views:SearchNotePage  IconImageSource="search.png"/>       
         
         <views:AddNote  IconImageSource="add.png"/>
-        
+         
     </TabbedPage.Children>
 
 

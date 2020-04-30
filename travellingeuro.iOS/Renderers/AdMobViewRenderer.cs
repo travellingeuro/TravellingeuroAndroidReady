@@ -17,7 +17,7 @@ namespace travellingeuro.iOS.Renderers
         {
             var bannerView = new BannerView(AdSizeCons.SmartBannerPortrait)
             {
-                AdUnitId = AppSettings.SampleIosAds,
+                AdUnitId = AppSettings.IosAds,
                 RootViewController = GetVisibleViewController()
             };
 
@@ -46,7 +46,7 @@ namespace travellingeuro.iOS.Renderers
             base.OnElementPropertyChanged(sender, e);
 
             if (e.PropertyName == nameof(BannerView.AdUnitId))
-                Control.AdUnitId = AppSettings.SampleIosAds;
+                Control.AdUnitId = AppSettings.IosAds;
         }
 
         private UIViewController GetVisibleViewController()
