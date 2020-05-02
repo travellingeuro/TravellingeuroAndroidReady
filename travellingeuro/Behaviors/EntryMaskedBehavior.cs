@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using travellingeuro.Controls;
+﻿using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
