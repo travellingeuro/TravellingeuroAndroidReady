@@ -34,6 +34,7 @@
         <Setter Property="FontSize" Value="{DynamicResource Sixteen}" />
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="ReturnType" Value="Done" />
+        <Setter Property="Visual" Value="Material"/>
     </Style>
 
     <!--  Common style for NavigationBar button  -->
@@ -49,6 +50,7 @@
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="BorderWidth" Value="0" />
         <Setter Property="FontFamily" Value="{StaticResource FontIcons}" />
+        <Setter Property="Visual" Value="Material"/>
     </Style>
 
     <!--  Common style for icon buttons  -->
@@ -63,6 +65,7 @@
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="HeightRequest" Value="40" />
         <Setter Property="WidthRequest" Value="40" />
+        <Setter Property="Visual" Value="Material"/>
     </Style>
 
     <!--  Common style for icon label  -->
@@ -74,10 +77,12 @@
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
         <Setter Property="FontFamily" Value="{StaticResource FontIcons}" />
+        <Setter Property="Visual" Value="Material"/>
     </Style>
 
     <!--  Common style for SfborderStyle  -->
     <Style x:Key="SfBorderStyle" TargetType="border:SfBorder">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="BackgroundColor" Value="{DynamicResource Gray-White}" />
         <Setter Property="BorderColor" Value="Transparent" />
         <Setter Property="CornerRadius" Value="25" />
@@ -86,6 +91,7 @@
 
     <!--  Common style for  Label  -->
     <Style x:Key="LabelStyle" TargetType="Label">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="FontFamily" Value="{StaticResource Montserrat-Medium}" />
         <Setter Property="FontSize" Value="{DynamicResource Sixteen}" />
         <Setter Property="TextColor" Value="{DynamicResource Gray-900}" />
@@ -100,12 +106,14 @@
 
     <!--  Common style for separator BoxView  -->
     <Style x:Key="SeparatorStyle" TargetType="BoxView">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="HeightRequest" Value="1" />
         <Setter Property="BackgroundColor" Value="{DynamicResource Gray-200}" />
     </Style>
 
     <!--  Common style for SfButtons  -->
     <Style x:Key="SfButtonStyle" TargetType="buttons:SfButton">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="TextColor" Value="{DynamicResource Gray-700}" />
         <Setter Property="FontFamily" Value="Montserrat-Regular" />
@@ -117,6 +125,7 @@
         x:Key="RoundButtonStyle"
         BasedOn="{StaticResource SfButtonStyle}"
         TargetType="buttons:SfButton">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="BorderColor" Value="{DynamicResource Gray-300}" />
         <Setter Property="BorderWidth" Value="1" />
         <Setter Property="CornerRadius" Value="22" />

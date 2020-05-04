@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms.Internals;
 
 namespace travellingeuro.Models
 {
+    [Preserve(AllMembers = true)]
     public partial class Users
     {
         public Users()

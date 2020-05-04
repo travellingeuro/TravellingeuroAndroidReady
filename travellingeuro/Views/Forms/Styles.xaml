@@ -53,10 +53,12 @@
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
         <Setter Property="FontFamily" Value="{StaticResource FontIcons}" />
+        <Setter Property="Visual" Value="Material"/>
     </Style>
 
     <!--  Common style for content pages  -->
     <Style x:Key="ContentPageStyle" TargetType="ContentPage">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="BackgroundImageSource">
             <OnPlatform
                 x:TypeArguments="ImageSource"
@@ -67,6 +69,7 @@
 
     <!--  Common style for labels  -->
     <Style x:Key="LabelStyle" TargetType="Label">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="TextColor" Value="{DynamicResource Gray-White}" />
         <Setter Property="FontSize" Value="{DynamicResource Fourteen}" />
         <Setter Property="LineHeight" Value="1.25" />
@@ -74,6 +77,7 @@
 
     <!--  Common style for entries  -->
     <Style x:Key="EntryStyle" TargetType="control:BorderlessEntry">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="PlaceholderColor" Value="{StaticResource EntryPlaceholderColor}" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="TextColor" Value="{DynamicResource Gray-White}" />
@@ -86,6 +90,7 @@
 
     <!--  Common style for buttons  -->
     <Style x:Key="SfButtonStyle" TargetType="buttons:SfButton">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
         <Setter Property="TextColor" Value="{DynamicResource Gray-White}" />
         <Setter Property="FontFamily" Value="{StaticResource Montserrat-SemiBold}" />
@@ -98,6 +103,7 @@
 
     <!--  Common style for flat buttons  -->
     <Style x:Key="SfFlatButtonStyle" TargetType="buttons:SfButton">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
         <Setter Property="FontFamily" Value="{StaticResource Montserrat-SemiBold}" />
@@ -107,6 +113,7 @@
 
     <!--  Common style for icon buttons  -->
     <Style x:Key="IconButtonStyle" TargetType="buttons:SfButton">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="TextColor" Value="{DynamicResource Gray-White}" />
         <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
         <Setter Property="FontFamily" Value="{StaticResource FontIcons}" />
@@ -121,6 +128,7 @@
 
     <!--  Common style for borders  -->
     <Style x:Key="SfBorderStyle" TargetType="border:SfBorder">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="BackgroundColor" Value="{StaticResource BorderBackgroundColor}" />
         <Setter Property="BorderColor" Value="Transparent" />
         <Setter Property="CornerRadius" Value="20" />
@@ -129,6 +137,7 @@
 
     <!--  Common style for gradient view  -->
     <Style x:Key="SfGradientViewStyle" TargetType="graphics:SfGradientView">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="Opacity" Value="0.82" />
         <Setter Property="VerticalOptions" Value="FillAndExpand" />
         <Setter Property="HorizontalOptions" Value="FillAndExpand" />
@@ -145,6 +154,7 @@
     </Style>
 
     <Style x:Key="SfGradientStyle" TargetType="graphics:SfGradientView">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="Opacity" Value="1" />
         <Setter Property="VerticalOptions" Value="FillAndExpand" />
         <Setter Property="HorizontalOptions" Value="FillAndExpand" />
@@ -163,6 +173,7 @@
 
 
     <Style x:Key="HeaderLabelStyle" TargetType="Label">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="FontFamily" Value="{StaticResource Montserrat-Bold}"/>
         <Setter Property="FontSize" Value="{DynamicResource Fourteen}"/>
         <Setter Property="LineHeight" Value="1.5"/>
@@ -170,6 +181,7 @@
     </Style>
 
     <Style x:Key="FormBorderStyle" TargetType="border:SfBorder">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="BorderColor" Value="{DynamicResource Gray-300}"/>
         <Setter Property="CornerRadius" Value="4"/>
         <Setter Property="Padding" Value="12,8"/>
@@ -178,6 +190,7 @@
     </Style>
 
     <Style x:Key="BusinessFormBorderStyle" TargetType="border:SfBorder">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="BorderColor" Value="{DynamicResource Gray-300}"/>
         <Setter Property="CornerRadius" Value="4"/>
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
@@ -185,6 +198,7 @@
     </Style>
 
     <Style x:Key="EntryTextStyle" TargetType="control:BorderlessEntry">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="FontFamily" Value="{StaticResource Montserrat-Regular}"/>
         <Setter Property="FontSize" Value="{DynamicResource Sixteen}"/>
         <Setter Property="TextColor" Value="{DynamicResource Gray-900}"/>
@@ -192,12 +206,14 @@
     </Style>
 
     <Style x:Key="DatePickerStyle" TargetType="DatePicker">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="FontFamily" Value="{StaticResource Montserrat-Regular}"/>
         <Setter Property="FontSize" Value="{DynamicResource Sixteen}"/>
         <Setter Property="TextColor" Value="{DynamicResource Gray-700}"/>
     </Style>
 
     <Style x:Key="ComboBoxStyle" TargetType="combobox:SfComboBox">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="FontFamily" Value="{StaticResource Montserrat-Regular}"/>
         <Setter Property="TextSize" Value="{DynamicResource Sixteen}"/>
         <Setter Property="TextColor" Value="{DynamicResource Gray-700}"/>
@@ -208,6 +224,7 @@
     </Style>
 
     <Style x:Key="EntryTextBoxStyle" TargetType="control:BorderlessEntry">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="FontFamily" Value="{StaticResource Montserrat-Regular}"/>
         <Setter Property="FontSize" Value="{DynamicResource Sixteen}"/>
         <Setter Property="TextColor" Value="{DynamicResource Gray-900}"/>
@@ -218,6 +235,7 @@
 
     <!-- Common style for profile border -->
     <Style x:Key="ProfileBorderStyle" TargetType="border:SfBorder">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="BorderWidth" Value="1" />
@@ -227,6 +245,7 @@
 
     <!--  Common style for social icon SfButton  -->
     <Style x:Key="SocialIconButtonStyle" TargetType="buttons:SfButton">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="FontSize" Value="{DynamicResource Eighteen}" />
         <Setter Property="CornerRadius" Value="22" />
         <Setter Property="VerticalOptions" Value="Center" />
@@ -238,6 +257,7 @@
     </Style>
     <!--Separator Style-->
     <Style x:Key="SeparatorStyle" TargetType="BoxView">
+        <Setter Property="Visual" Value="Material"/>
         <Setter Property="HeightRequest" Value="1" />
         <Setter Property="BackgroundColor" Value="{DynamicResource Gray-200}" />
     </Style>

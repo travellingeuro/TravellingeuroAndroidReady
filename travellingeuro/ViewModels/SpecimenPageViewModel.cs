@@ -4,9 +4,11 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Xamarin.Forms.Internals;
 
 namespace travellingeuro.ViewModels
 {
+    [Preserve(AllMembers = true)]
     class SpecimenPageViewModel : BindableBase, INavigationAware
     {
         //Service

@@ -8,7 +8,8 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              NavigationPage.HasNavigationBar="False"
              Padding="20,20,20,20"
-             x:Class="travellingeuro.Views.SpecimenPage">
+             x:Class="travellingeuro.Views.SpecimenPage"
+              Visual="Material" >
 
     <ContentPage.Resources>
         <ResourceDictionary>

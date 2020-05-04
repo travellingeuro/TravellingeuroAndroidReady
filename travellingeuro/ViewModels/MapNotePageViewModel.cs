@@ -12,9 +12,11 @@ using travellingeuro.Controls;
 using travellingeuro.Helper;
 using travellingeuro.Models;
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 
 namespace travellingeuro.ViewModels
 {
+	[Preserve(AllMembers = true)]
 	public class MapNotePageViewModel : BindableBase, INavigationAware
 	{
 		//Services

@@ -28,6 +28,7 @@ namespace travellingeuro.iOS
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjM4MzQwQDMxMzgyZTMxMmUzMFJtcjh3WkhxNGc5MEpNT29sb3BUeGdkQS91MnRqeGl1S3VDanpKUEYwMVk9");
 global::Xamarin.Forms.Forms.Init();
+            global::Xamarin.Forms.FormsMaterial.Init();
 SfMapsRenderer.Init();
             MobileAds.SharedInstance.Start(CompletionHandler);
             SfGradientViewRenderer.Init();

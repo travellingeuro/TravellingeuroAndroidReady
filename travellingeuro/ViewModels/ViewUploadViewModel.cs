@@ -7,9 +7,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using travellingeuro.Models;
 using travellingeuro.Services.SearchPlace;
+using Xamarin.Forms.Internals;
 
 namespace travellingeuro.ViewModels
 {
+    [Preserve(AllMembers = true)]
     public class ViewUploadViewModel : BindableBase, INavigationAware
     {
         //Services

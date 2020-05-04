@@ -8,7 +8,8 @@
              xmlns:controls="clr-namespace:travellingeuro.Controls"
              x:Class="travellingeuro.Views.ViewUpload"
              Title="ViewNotes page"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+              Visual="Material" >
 
     <ContentPage.Resources>
         <ResourceDictionary>

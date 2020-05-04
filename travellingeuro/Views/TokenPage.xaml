@@ -10,7 +10,8 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              NavigationPage.HasNavigationBar="False"
              Padding="20,20,20,0"
-             x:Class="travellingeuro.Views.TokenPage">
+             x:Class="travellingeuro.Views.TokenPage"
+              Visual="Material" >
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -120,7 +121,7 @@
             <!--Next Button-->
             <buttons:SfButton 
                     Text="{StaticResource Next}"
-                    HorizontalOptions="Start"
+                    HorizontalOptions="End"
                     Margin="0,24,0,0"
                     Style="{StaticResource IconButtonStyle}"
                     CornerRadius="4"

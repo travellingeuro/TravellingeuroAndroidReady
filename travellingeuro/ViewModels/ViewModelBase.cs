@@ -4,9 +4,11 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms.Internals;
 
 namespace travellingeuro.ViewModels
 {
+    [Preserve(AllMembers = true)]
     public class ViewModelBase : BindableBase, IInitialize, INavigationAware, IDestructible
     {
         protected INavigationService NavigationService { get; private set; }

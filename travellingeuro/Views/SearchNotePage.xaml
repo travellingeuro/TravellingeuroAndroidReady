@@ -9,7 +9,8 @@
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              prism:ViewModelLocator.AutowireViewModel="True"
              NavigationPage.HasNavigationBar="False"      
-             x:Class="travellingeuro.Views.SearchNotePage">
+             x:Class="travellingeuro.Views.SearchNotePage"
+              Visual="Material" >
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -120,9 +121,9 @@
                             Style="{StaticResource EntryTextBoxStyle}" />
             </border:SfBorder>
 
-            <buttons:SfButton 
+            <buttons:SfButton                 
                         Text="{StaticResource Search}"
-                        HorizontalOptions="Start"
+                        HorizontalOptions="End"
                         Margin="0,24,0,0"
                         Style="{StaticResource IconButtonStyle}"
                         CornerRadius="4"

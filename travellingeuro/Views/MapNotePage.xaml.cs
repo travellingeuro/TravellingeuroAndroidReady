@@ -4,9 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using travellingeuro.Helper;
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
+using Xamarin.Forms.Xaml;
 
 namespace travellingeuro.Views
 {
+    [Preserve(AllMembers = true)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MapNotePage : ContentPage
     {
         public MapNotePage()

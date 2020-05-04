@@ -13,9 +13,11 @@ using travellingeuro.Exceptions;
 using travellingeuro.Models;
 using travellingeuro.Services.Dialogs;
 using travellingeuro.Services.SearchNote;
+using Xamarin.Forms.Internals;
 
 namespace travellingeuro.ViewModels
 {
+    [Preserve(AllMembers = true)]
     public class StatsViewModel : BindableBase, INavigationAware
     {
         //Services
