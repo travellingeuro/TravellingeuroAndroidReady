@@ -15,9 +15,11 @@ using travellingeuro.Models;
 using travellingeuro.Services.Dialogs;
 using travellingeuro.Services.Scan;
 using travellingeuro.Services.SearchNote;
+using Xamarin.Forms.Internals;
 
 namespace travellingeuro.ViewModels
 {
+    [Preserve(AllMembers = true)]
     class SearchNotePageViewModel : BindableBase, INavigationAware
     {
         //Service

@@ -12,7 +12,8 @@
              xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms" 
              xmlns:behaviours="clr-namespace:travellingeuro.Behaviors"
              prism:ViewModelLocator.AutowireViewModel="True"             
-             x:Class="travellingeuro.Views.PhoneNumberPage">
+             x:Class="travellingeuro.Views.PhoneNumberPage"
+              Visual="Material" >
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -31,7 +32,7 @@
 
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
-            <On Platform="iOS" Value="0, 20, 0, 0" />
+            <On Platform="iOS" Value="0, 40, 0, 0" />
         </OnPlatform>
     </ContentPage.Padding>
     <ContentPage.ControlTemplate>
@@ -156,7 +157,7 @@
 
             <buttons:SfButton 
                     Text="{StaticResource Next}"
-                    HorizontalOptions="Start"
+                    HorizontalOptions="End"
                     Margin="0,24,0,0"
                     Style="{StaticResource IconButtonStyle}"
                     CornerRadius="4"

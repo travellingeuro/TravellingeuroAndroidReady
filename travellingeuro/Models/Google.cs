@@ -3,9 +3,11 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms.Internals;
 
 namespace travellingeuro.Models
 {
+    [Preserve(AllMembers = true)]
     public class GooglePlaceAutoCompletePrediction
     {
         [JsonProperty("description")]
@@ -24,7 +26,7 @@ namespace travellingeuro.Models
         public StructuredFormatting StructuredFormatting { get; set; }
 
     }
-
+    [Preserve(AllMembers = true)]
     public class StructuredFormatting
     {
         [JsonProperty("main_text")]
@@ -33,7 +35,7 @@ namespace travellingeuro.Models
         [JsonProperty("secondary_text")]
         public string SecondaryText { get; set; }
     }
-
+    [Preserve(AllMembers = true)]
     public class GooglePlaceAutoCompleteResult
     {
         [JsonProperty("status")]
@@ -42,7 +44,7 @@ namespace travellingeuro.Models
         [JsonProperty("predictions")]
         public List<GooglePlaceAutoCompletePrediction> AutoCompletePlaces { get; set; }
     }
-
+    [Preserve(AllMembers = true)]
     public class Photo
     {
         public int height { get; set; }
@@ -50,7 +52,7 @@ namespace travellingeuro.Models
         public string photo_reference { get; set; }
         public int width { get; set; }
     }
-
+    [Preserve(AllMembers = true)]
     public class GooglePlace
     {
         public string Name { get; set; }
@@ -70,7 +72,7 @@ namespace travellingeuro.Models
             Raw = jsonObject.ToString();
         }
     }
-
+    [Preserve(AllMembers = true)]
     public class GooglePlacePictures
     {
         public string Name { get; set; }

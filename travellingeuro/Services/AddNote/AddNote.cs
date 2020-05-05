@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using travellingeuro.Models;
 using travellingeuro.Services.Dialogs;

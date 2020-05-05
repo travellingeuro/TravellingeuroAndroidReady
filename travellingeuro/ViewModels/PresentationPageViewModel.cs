@@ -1,11 +1,12 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace travellingeuro.ViewModels
 {
-
+    [Preserve(AllMembers = true)]
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public class PresentationPageViewModel : BindableBase
     {

@@ -5,6 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <!--fontsizes-->
+    <OnPlatform x:Key="Eight" x:TypeArguments="x:Double" iOS="12.0" Android="12.0" WinPhone="10.0" />
+    <OnPlatform x:Key="Ten" x:TypeArguments="x:Double" iOS="15.0" Android="15.0" WinPhone="12.0" />
     <OnPlatform x:Key="Twelve" x:TypeArguments="x:Double" iOS="17.0" Android="17.0" WinPhone="14.0" />
     <OnPlatform x:Key="Fourteen" x:TypeArguments="x:Double" iOS="18.0" Android="18.0" WinPhone="14.0" />
     <OnPlatform x:Key="Sixteen" x:TypeArguments="x:Double" iOS="18.0" Android="18.0" WinPhone="14.0" />

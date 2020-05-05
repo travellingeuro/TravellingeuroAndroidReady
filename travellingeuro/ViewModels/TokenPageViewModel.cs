@@ -12,9 +12,11 @@ using travellingeuro.Helper;
 using travellingeuro.Models;
 using travellingeuro.Services.Dialogs;
 using travellingeuro.Services.User;
+using Xamarin.Forms.Internals;
 
 namespace travellingeuro.ViewModels
 {
+    [Preserve(AllMembers = true)]
     class TokenPageViewModel : BindableBase, INavigationAware
     {
         //Services

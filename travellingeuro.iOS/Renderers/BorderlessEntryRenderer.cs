@@ -3,7 +3,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(travellingeuro.Controls.BorderlessEntry), typeof(travellingeuro.iOS.BorderlessEntryRenderer))]
-
 namespace travellingeuro.iOS
 {
     public class BorderlessEntryRenderer : EntryRenderer

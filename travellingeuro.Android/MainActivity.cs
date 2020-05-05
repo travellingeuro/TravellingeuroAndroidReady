@@ -7,7 +7,7 @@ using Prism.Ioc;
 
 namespace travellingeuro.Droid
 {
-    [Activity(Label = "travellingeuro", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "travellingeuro", Icon = "@mipmap/logo", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
@@ -23,8 +23,8 @@ namespace travellingeuro.Droid
             base.OnCreate(bundle);
 
             Xamarin.Essentials.Platform.Init(this, bundle);
-
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            global::Xamarin.Forms.FormsMaterial.Init(this, bundle);
             UserDialogs.Init(this);
             LoadApplication(new App(new AndroidInitializer()));
         }
