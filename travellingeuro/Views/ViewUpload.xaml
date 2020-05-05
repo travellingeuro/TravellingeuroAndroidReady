@@ -13,7 +13,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <x:Double x:Key="fontsize">18</x:Double>
+            <x:Double x:Key="fontsize">17</x:Double>
             <x:Double x:Key="fontsizelist">15</x:Double>
             <x:Double x:Key="scaleicon">1.10</x:Double>
             <x:Double x:Key="spacing">5</x:Double>
