@@ -2,6 +2,9 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Prism;
 using Prism.Ioc;
 
@@ -26,6 +29,7 @@ namespace travellingeuro.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             global::Xamarin.Forms.FormsMaterial.Init(this, bundle);
             UserDialogs.Init(this);
+            AppCenter.Start("93ae46ad-ed4c-40ca-82df-e12c3fdab482;ios=fc96f24b-04b6-490d-a920-7ed0956a5bee", typeof(Analytics), typeof(Crashes));
             LoadApplication(new App(new AndroidInitializer()));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)

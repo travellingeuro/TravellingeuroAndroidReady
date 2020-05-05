@@ -1,4 +1,7 @@
-﻿using Prism;
+﻿using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Prism;
 using Prism.Ioc;
 using travellingeuro.Services.AddNote;
 using travellingeuro.Services.Dialogs;
@@ -31,6 +34,8 @@ namespace travellingeuro
         protected override async void OnInitialized()
         {
             InitializeComponent();
+            AppCenter.Start("android=93ae46ad-ed4c-40ca-82df-e12c3fdab482;ios=fc96f24b-04b6-490d-a920-7ed0956a5bee",
+                typeof(Analytics), typeof(Crashes));
 
             await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
