@@ -45,6 +45,8 @@
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <MtouchDebug>true</MtouchDebug>
+    <DeviceSpecificBuild>false</DeviceSpecificBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -75,13 +77,15 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>Full</MtouchLink>
     <OptimizePNGs>true</OptimizePNGs>
-    <MtouchUseLlvm>false</MtouchUseLlvm>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <MtouchNoSymbolStrip>false</MtouchNoSymbolStrip>
     <CodesignProvision>My_Distribution</CodesignProvision>
-    <MtouchExtraArgs>--optimize=experimental-xforms-product-type</MtouchExtraArgs>
-    <MtouchInterpreter>-all</MtouchInterpreter>
+    <MtouchExtraArgs>--optimize=experimental-xforms-product-type --linkskip=Prism.Unity.Forms</MtouchExtraArgs>
+    <MtouchInterpreter>
+    </MtouchInterpreter>
+    <MtouchDebug>true</MtouchDebug>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
