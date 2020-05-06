@@ -96,13 +96,15 @@ Global
 		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.AppStore|iPhoneSimulator.ActiveCfg = AppStore|iPhoneSimulator
 		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.AppStore|iPhoneSimulator.Build.0 = AppStore|iPhoneSimulator
 		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.Debug|Any CPU.ActiveCfg = Debug|iPhone
-		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.Debug|iPhone.Build.0 = Debug|iPhone
+		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.Debug|iPhone.ActiveCfg = Release|iPhone
+		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.Debug|iPhone.Build.0 = Release|iPhone
+		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.Debug|iPhone.Deploy.0 = Release|iPhone
 		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
 		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
 		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.Release|Any CPU.ActiveCfg = Release|iPhone
 		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.Release|iPhone.ActiveCfg = Release|iPhone
 		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.Release|iPhone.Build.0 = Release|iPhone
+		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.Release|iPhone.Deploy.0 = Release|iPhone
 		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{4CD4AA35-78FD-4CC3-938F-DE2139359A55}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection

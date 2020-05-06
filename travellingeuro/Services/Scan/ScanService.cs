@@ -77,16 +77,16 @@ namespace travellingeuro.Services.Scan
         {
             await CrossMedia.Current.Initialize();
 
-            if (CrossMedia.Current.IsCameraAvailable)
+            if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported)
             {
                 var photo = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
                 {
-                    SaveToAlbum = false,
-                    Directory = "Sample",
+                    SaveToAlbum = true,
+                    Directory = "Sample.jpg",
                     Name = "SerialPic",
-                    PhotoSize = PhotoSize.MaxWidthHeight,
-                    MaxWidthHeight = 2000,
-                    CompressionQuality = 65,
+                    PhotoSize = PhotoSize.Small,
+                   
+                    CompressionQuality = 50,
                     AllowCropping = true
                 });
                 return photo;
