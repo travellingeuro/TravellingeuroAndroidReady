@@ -108,11 +108,13 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignProvision>My_Development</CodesignProvision>
     <CodesignKey>Apple Development: Pedro Crespo Martin (5A32Q6VL55)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <OptimizePNGs>true</OptimizePNGs>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchExtraArgs>--optimize=force-rejected-types-removal  --optimize=experimental-xforms-product-type</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
