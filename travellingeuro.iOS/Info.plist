@@ -66,12 +66,12 @@
 	<key>CFBundleVersion</key>
 	<string>1.4</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Needed to capture the serial number. This won&apos;t be shared</string>
+	<string>Needed to capture the serial number. This will not be shared</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>In order to speak the serial number of a note</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Needed to pick a photo of a note&apos;s serial number. This won&apos;t be shared.</string>
+	<string>Needed to pick a photo of a note serial number. This will not be shared.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Needed to pick a photo of a note&apos;s serial number. This won&apos;t be shared.</string>
+	<string>Needed to pick a photo of a note serial number. This will not be shared.</string>
 </dict>
 </plist>
