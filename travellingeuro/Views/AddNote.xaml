@@ -13,8 +13,8 @@
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="travellingeuro.Views.AddNote"
-             NavigationPage.HasNavigationBar="False" 
-             Visual="Material">
+             NavigationPage.HasNavigationBar="False">
+ 
 
     <ContentPage.Resources>
         <ResourceDictionary>
