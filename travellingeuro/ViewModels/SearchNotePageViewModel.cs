@@ -33,6 +33,7 @@ namespace travellingeuro.ViewModels
         public DelegateCommand SearchNoteCommand { get; set; }
         public DelegateCommand ScanCommand { get; set; }
         public DelegateCommand ShowSpecimenCommand { get; set; }
+        public DelegateCommand GoBackCommand { get; set; }
 
 
         //properties
@@ -67,9 +68,21 @@ namespace travellingeuro.ViewModels
             this.SearchNoteCommand = new DelegateCommand(async () => await SearchNoteMethod());
             this.ScanCommand = new DelegateCommand(async () => await ScanAsyncMethod());
             this.ShowSpecimenCommand = new DelegateCommand(ShowSpecimenAsyncMethod);
+            this.GoBackCommand = new DelegateCommand(GoBackMethod);
         }
 
-
+        private async void GoBackMethod()
+        {
+            var stack = NavigationService.GetNavigationUriPath();
+            if (stack == "/NavigationPage/MainPage?selectedTab=SearchNotePage" || stack == "/MainPage?selectedTab=SearchNotePage")
+            {
+                await NavigationService.NavigateAsync("/MainPage");
+            }
+            else
+            {
+                await NavigationService.GoBackAsync();
+            }
+        }
 
         async Task ScanAsyncMethod()
         {

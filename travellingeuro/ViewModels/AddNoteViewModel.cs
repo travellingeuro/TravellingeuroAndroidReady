@@ -46,6 +46,7 @@ namespace travellingeuro.ViewModels
         public DelegateCommand ViewMapCommand { get; set; }
         public DelegateCommand AddAnotherCommand { get; set; }
         public DelegateCommand NavigateToUploadsCommand { get; set; }
+        public DelegateCommand GoBackCommand { get; set; }
 
 
         //Properties
@@ -183,11 +184,24 @@ namespace travellingeuro.ViewModels
             this.ViewMapCommand = new DelegateCommand(ViewonMapMethod, CanViewOnMap).ObservesProperty(() => IsViewonMapEnable);
             this.AddAnotherCommand = new DelegateCommand(AddAnotherMethod, CanViewOnMap).ObservesProperty(() => IsViewonMapEnable);
             this.NavigateToUploadsCommand = new DelegateCommand(NavigateToUploadsMethod, CanViewOnMap).ObservesProperty(() => IsViewonMapEnable);
+            this.GoBackCommand = new DelegateCommand(GoBackMethod);
 
 
         }
 
-
+        private async void GoBackMethod()
+        {
+            var stack=NavigationService.GetNavigationUriPath();
+            if (stack == "/NavigationPage/MainPage?selectedTab=AddNote" || stack == "/MainPage?selectedTab=AddNote")
+            {
+                await NavigationService.NavigateAsync("/MainPage");
+            }
+            else 
+            {
+                await NavigationService.GoBackAsync();
+            }
+            
+        }
 
         private void AddAnotherMethod()
         {
