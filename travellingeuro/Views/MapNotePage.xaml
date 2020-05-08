@@ -10,8 +10,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              NavigationPage.BackButtonTitle="Back"   
              NavigationPage.HasNavigationBar="False"
-             x:Name="Mappage"
-              >
+             x:Name="Mappage" >
     <ContentPage.Resources>
         <ResourceDictionary>
 

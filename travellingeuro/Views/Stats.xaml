@@ -11,8 +11,7 @@
              xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms" 
              xmlns:converter="clr-namespace:travellingeuro.Converters"
              NavigationPage.HasNavigationBar="False"
-             x:Class="travellingeuro.Views.Stats"
-              Visual="Material"  >
+             x:Class="travellingeuro.Views.Stats" >
 
     <ContentPage.Resources>
 
