@@ -64,7 +64,7 @@
 	<key>CFBundleIconName</key>
 	<string>AppIcon</string>
 	<key>CFBundleVersion</key>
-	<string>1.4</string>
+	<string>1.5</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Needed to capture the serial number. This will not be shared</string>
 	<key>NSMicrophoneUsageDescription</key>
