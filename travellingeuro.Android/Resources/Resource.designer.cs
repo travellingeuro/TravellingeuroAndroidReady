@@ -18701,28 +18701,10 @@ namespace travellingeuro.Droid
 			public const int path_password_strike_through = 2131624016;
 			
 			// aapt resource value: 0x7F0E0051
-			public const int s1 = 2131624017;
+			public const int search_menu_title = 2131624017;
 			
 			// aapt resource value: 0x7F0E0052
-			public const int s2 = 2131624018;
-			
-			// aapt resource value: 0x7F0E0053
-			public const int s3 = 2131624019;
-			
-			// aapt resource value: 0x7F0E0054
-			public const int s4 = 2131624020;
-			
-			// aapt resource value: 0x7F0E0055
-			public const int s5 = 2131624021;
-			
-			// aapt resource value: 0x7F0E0056
-			public const int s6 = 2131624022;
-			
-			// aapt resource value: 0x7F0E0057
-			public const int search_menu_title = 2131624023;
-			
-			// aapt resource value: 0x7F0E0058
-			public const int status_bar_notification_info_overflow = 2131624024;
+			public const int status_bar_notification_info_overflow = 2131624018;
 			
 			static String()
 			{
