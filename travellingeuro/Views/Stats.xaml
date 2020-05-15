@@ -56,7 +56,7 @@
                         Text="{StaticResource Back}"
                         BindingContext="{TemplateBinding BindingContext}">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding GoBackCommand}"/>
+                            <TapGestureRecognizer Command="{prismnav:GoBack UseModalNavigation=False}"/>
                         </Label.GestureRecognizers>
 
                     </Label>

@@ -23,7 +23,6 @@ namespace travellingeuro.ViewModels
         //Services
         public IDialogService dialogService { get; private set; }
         public ISearchNote searchNote { get; private set; }
-        public INavigationService NavigationService { get; private set; }
 
         //Properties
         private List<Uploads> uploads;
@@ -64,23 +63,14 @@ namespace travellingeuro.ViewModels
             set { SetProperty(ref viewmarkers, value); }
         }
 
-        //Commands
-
-        public DelegateCommand GoBackCommand { get; set; }
 
         //ctr
-        public StatsViewModel(IDialogService dialogService, ISearchNote searchNote, INavigationService navigationService)
+        public StatsViewModel(IDialogService dialogService, ISearchNote searchNote)
         {
             this.dialogService = dialogService;
             this.searchNote = searchNote;
-            this.NavigationService = navigationService;
-            this.GoBackCommand = new DelegateCommand(GoBackMethod);
         }
 
-        private async void GoBackMethod()
-        {
-            await NavigationService.GoBackAsync();
-        }
 
         private async Task<List<Uploads>> GetUploads()
         {
