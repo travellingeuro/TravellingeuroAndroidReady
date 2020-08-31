@@ -29,8 +29,8 @@ namespace travellingeuro.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjM4MzQwQDMxMzgyZTMxMmUzMFJtcjh3WkhxNGc5MEpNT29sb3BUeGdkQS91MnRqeGl1S3VDanpKUEYwMVk9");
-global::Xamarin.Forms.Forms.Init();
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzEwOTEwQDMxMzgyZTMyMmUzMEt3ZGc2SjM1Z0dGcEVYdzc1KzY4K3l1RURTQjR0RXN4SkpyNzMvR2M1MWs9");
+            global::Xamarin.Forms.Forms.Init();
             
             AppCenter.Start("fc96f24b-04b6-490d-a920-7ed0956a5bee", typeof(Analytics), typeof(Crashes));
             SfMapsRenderer.Init();

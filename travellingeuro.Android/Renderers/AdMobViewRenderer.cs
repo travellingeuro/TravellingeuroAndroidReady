@@ -10,7 +10,7 @@ using Xamarin.Forms.Platform.Android;
 [assembly: ExportRenderer(typeof(AdMobView), typeof(AdMobViewRenderer))]
 namespace travellingeuro.Droid.Renderers
 {
-    [System.Obsolete]
+    
     public class AdMobViewRenderer : ViewRenderer<AdMobView, AdView>
     {
         public AdMobViewRenderer(Context context) : base(context) { }
