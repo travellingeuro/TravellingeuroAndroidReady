@@ -1,4 +1,5 @@
-﻿using Microsoft.AppCenter;
+﻿using MarcTron.Plugin;
+using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Prism;
@@ -15,6 +16,7 @@ using travellingeuro.Services.SMS;
 using travellingeuro.Services.User;
 using travellingeuro.ViewModels;
 using travellingeuro.Views;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -37,10 +39,25 @@ namespace travellingeuro
             InitializeComponent();
             AppCenter.Start($"android={AppSettings.AppCenterAndroidKey};ios={AppSettings.AppCenteriOSKey}",
                 typeof(Analytics), typeof(Crashes));
+            CrossMTAdmob.Current.UserPersonalizedAds = true;
+            CrossMTAdmob.Current.ComplyWithFamilyPolicies = true;
+            CrossMTAdmob.Current.UseRestrictedDataProcessing = true;
+            AppSettings.ShowInterstitial = true;
+            CrossMTAdmob.Current.AdsId = DeviceInfo.Platform == DevicePlatform.iOS ? AppSettings.IosAds : AppSettings.AndroidAds;
 
 
 
             await NavigationService.NavigateAsync("NavigationPage/MainPage");
+        }
+        protected override void OnSleep()
+        {
+            base.OnSleep();
+            AppSettings.ShowInterstitial = true;
+        }
+        protected override void OnResume()
+        {
+            base.OnResume();
+            AppSettings.ShowInterstitial = true;
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

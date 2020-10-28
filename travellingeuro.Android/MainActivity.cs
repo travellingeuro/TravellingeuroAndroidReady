@@ -31,7 +31,8 @@ namespace travellingeuro.Droid
             base.OnCreate(bundle);
 
             Xamarin.Essentials.Platform.Init(this, bundle);
-            global::Xamarin.Forms.Forms.Init(this, bundle);            
+            global::Xamarin.Forms.Forms.Init(this, bundle);
+            global::Xamarin.Forms.FormsMaterial.Init(this, bundle);
             UserDialogs.Init(this);
 
 

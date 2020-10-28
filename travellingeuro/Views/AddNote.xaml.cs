@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using MarcTron.Plugin;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
@@ -12,6 +14,22 @@ namespace travellingeuro.Views
         public AddNote()
         {
             InitializeComponent();
+            if (AppSettings.ShowInterstitial)
+            {
+                var interad = Xamarin.Essentials.DeviceInfo.Platform == DevicePlatform.Android ? AppSettings.InterstitialAndroid : AppSettings.InterstitialiOS;
+                CrossMTAdmob.Current.LoadInterstitial(interad);
+                ShowInterstitial();
+            }
+        }
+
+        private void ShowInterstitial()
+        {
+            var show = CrossMTAdmob.Current.IsInterstitialLoaded();
+            if (show)
+            {
+                CrossMTAdmob.Current.ShowInterstitial();
+                AppSettings.ShowInterstitial = false;
+            }
         }
     }
 }
