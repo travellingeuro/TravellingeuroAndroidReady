@@ -14,11 +14,22 @@ namespace travellingeuro
         const string defaultSampleAndroidAds = "ca-app-pub-3940256099942544/6300978111";
         const string defaultSampleIosAds = "ca-app-pub-3940256099942544/2934735716";
 
-        //Other services
+        //AppsFlyer DeveloperKey
+        const string defaultAppsFlyerDevKey = "mev2fD4zJwnzjJhAGYd3SH";
 
+        //Cognitive services
         const string defaultCognitiveServiceKey = "27a4453a28ab4df8af50d22fed37bcc0";
+        //Places and maps
         const string defaultGooglePlacesApiKey = "AIzaSyAA5f_usWVL2jbldPd4KDKFFZIrMuKYD6U";
-        const string defaultGoogleMapsIosKey = "AIzaSyCgNTU_EGivVGG9uS2FrvkdRinGzAmd99g";
+        //Syncfusion
+        const string defaultSyncfusionKey = "MzEwOTEwQDMxMzgyZTMyMmUzMEt3ZGc2SjM1Z0dGcEVYdzc1KzY4K3l1RURTQjR0RXN4SkpyNzMvR2M1MWs9";
+
+        //AppCenter
+        const string defaultAppCenterAndroidKey = "93ae46ad-ed4c-40ca-82df-e12c3fdab482";
+        const string defaultAppCenteriOSKey = "fc96f24b-04b6-490d-a920-7ed0956a5bee";
+     
+
+ 
 
 
         //EndPoints
@@ -41,6 +52,7 @@ namespace travellingeuro
             defaultSMSEndPoint = "https://travellingeurowebapi.azurewebsites.net/api/sms";
             defaultGoogleBaseEndPoint = "https://maps.googleapis.com/maps/";
             defaultNotificationEndPoint = "https://travellingeurowebapi.azurewebsites.net/api/notifications/";
+            
 
 
         }
@@ -82,6 +94,11 @@ namespace travellingeuro
             set => Preferences.Set(nameof(SampleIosAds), value);
         }
 
+        public static string AppsFlyerDevKey
+        {
+            get => Preferences.Get(nameof(AppsFlyerDevKey), defaultAppsFlyerDevKey);
+            set => Preferences.Set(nameof(AppsFlyerDevKey), value);
+        }
 
 
 
@@ -97,11 +114,26 @@ namespace travellingeuro
             set => Preferences.Set(nameof(GooglePlacesApiKey), value);
         }
 
-        public static string GoogleMapsIosKey
+        public static string SyncfusionKey
         {
-            get => Preferences.Get(nameof(GoogleMapsIosKey), defaultGoogleMapsIosKey);
-            set => Preferences.Set(nameof(GoogleMapsIosKey), value);
+            get => Preferences.Get(nameof(SyncfusionKey), defaultSyncfusionKey);
+            set => Preferences.Set(nameof(SyncfusionKey), value);
         }
+
+        public static string AppCenterAndroidKey
+        {
+            get => Preferences.Get(nameof(AppCenterAndroidKey), defaultAppCenterAndroidKey);
+            set => Preferences.Set(nameof(AppCenterAndroidKey), value);
+        }
+
+        public static string AppCenteriOSKey
+        {
+            get => Preferences.Get(nameof(AppCenteriOSKey), defaultAppCenteriOSKey);
+            set => Preferences.Set(nameof(AppCenteriOSKey), value);
+        }
+
+
+
 
         public static string SearchEndPoint
         {
@@ -152,6 +184,8 @@ namespace travellingeuro
             get => Preferences.Get(nameof(NotificationEndPoint), defaultNotificationEndPoint);
             set => Preferences.Set(nameof(NotificationEndPoint), value);
         }
+
+
 
 
 

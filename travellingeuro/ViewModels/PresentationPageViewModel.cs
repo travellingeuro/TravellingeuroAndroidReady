@@ -32,23 +32,13 @@ namespace travellingeuro.ViewModels
 
         private async void NavigateTotatsViewPageMethod()
         {
-            await navigationService.NavigateAsync("Stats"); //nueva
-         // await navigationService.NavigateAsync("StatsViewPage"); //antigua
+            await navigationService.NavigateAsync("Stats");
         }
 
         private async void NavigateToAddNoteMethod()
-        {
-
-
-            if (App.Current.Properties.ContainsKey("user"))
-            {
-                await navigationService.NavigateAsync("AddNote");
-            }
-            else
-            {
-                await navigationService.NavigateAsync("PhoneNumberPage");
-            }
-        }
+        {           
+            await navigationService.NavigateAsync("AddNote");
+                    }
 
         private async void NavigateToSearchNotePageMethod()
         {

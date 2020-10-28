@@ -1,5 +1,4 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using Prism.Navigation;
 using Syncfusion.SfMaps.XForms;
 using System;
@@ -23,6 +22,7 @@ namespace travellingeuro.ViewModels
         //Services
         public IDialogService dialogService { get; private set; }
         public ISearchNote searchNote { get; private set; }
+       
 
         //Properties
         private List<Uploads> uploads;
@@ -69,6 +69,7 @@ namespace travellingeuro.ViewModels
         {
             this.dialogService = dialogService;
             this.searchNote = searchNote;
+            
         }
 
 
@@ -152,8 +153,9 @@ namespace travellingeuro.ViewModels
 
         }
 
-        public void OnNavigatedTo(INavigationParameters parameters)
+        public  void OnNavigatedTo(INavigationParameters parameters)
         {
+
             Uploads = Task.Run(GetUploads).Result;
             TotalNotes= Uploads.Select(s => s.SerialNumber).Distinct().Count();
         }

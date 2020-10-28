@@ -8,7 +8,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using travellingeuro.Exceptions;
 using travellingeuro.Helper;
 using travellingeuro.Models;
@@ -39,13 +38,17 @@ namespace travellingeuro.ViewModels
 
 
         //Commands
-        public ICommand FocusOriginCommand { get; set; }
+        
         public DelegateCommand ShowSpecimenCommand { get; set; }
         public DelegateCommand ScanCommand { get; set; }
         public DelegateCommand AddCommand { get; set; }
-        public DelegateCommand ViewMapCommand { get; set; }
-        public DelegateCommand AddAnotherCommand { get; set; }
-        public DelegateCommand NavigateToUploadsCommand { get; set; }
+        private DelegateCommand viewmapcommand;
+        public DelegateCommand ViewMapCommand =>
+            viewmapcommand ?? (viewmapcommand = new DelegateCommand(ViewonMapMethod, () => IsViewonMapEnable).ObservesProperty(() => IsViewonMapEnable));
+       
+        //public DelegateCommand ViewMapCommand { get; private set; }
+        public DelegateCommand AddAnotherCommand { get; private set; }
+        public DelegateCommand NavigateToUploadsCommand { get; private set; }
         public DelegateCommand GoBackCommand { get; set; }
 
 
@@ -84,6 +87,13 @@ namespace travellingeuro.ViewModels
         {
             get { return email; }
             set { SetProperty(ref email, value); }
+        }
+
+        private bool showemailentry;
+        public bool ShowEmailEntry
+        {
+            get { return showemailentry; }
+            set { SetProperty(ref showemailentry, value); }
         }
 
         private string comments;
@@ -178,17 +188,26 @@ namespace travellingeuro.ViewModels
             this.addnoteService = addNoteService;
             this.searchNoteService = searchNoteSercice;
             this.NotificationService = notificationService;
+            this.ShowEmailEntry = emailexist();
             this.ShowSpecimenCommand = new DelegateCommand(ShowSpecimenAsyncMethod);
             this.ScanCommand = new DelegateCommand(async () => await ScanAsyncMethod());
             this.AddCommand = new DelegateCommand(AddMethod);
-            this.ViewMapCommand = new DelegateCommand(ViewonMapMethod, CanViewOnMap).ObservesProperty(() => IsViewonMapEnable);
+            //this.ViewMapCommand = new DelegateCommand(ViewonMapMethod, CanViewOnMap).ObservesProperty(() => IsViewonMapEnable);
             this.AddAnotherCommand = new DelegateCommand(AddAnotherMethod, CanViewOnMap).ObservesProperty(() => IsViewonMapEnable);
             this.NavigateToUploadsCommand = new DelegateCommand(NavigateToUploadsMethod, CanViewOnMap).ObservesProperty(() => IsViewonMapEnable);
             this.GoBackCommand = new DelegateCommand(GoBackMethod);
 
 
         }
-
+        private bool emailexist()
+        {
+            if (App.Current.Properties.ContainsKey("user"))
+            {
+                Email = (string)App.Current.Properties["user"];
+                return false;
+            }
+            return true;
+        }
         private async void GoBackMethod()
         {
             var stack=NavigationService.GetNavigationUriPath();
@@ -220,7 +239,7 @@ namespace travellingeuro.ViewModels
                     var listofnotes = await searchNoteService.GetSearchAsync(SerialNumber);
                     var parameters = new NavigationParameters();
                     parameters.Add("Uploads", listofnotes);
-                    await NavigationService.NavigateAsync("MapNotePage", parameters, useModalNavigation: true);
+                    await NavigationService.NavigateAsync("MapNotePage", parameters, true,true);
                 }
                 else
                 {
@@ -282,7 +301,8 @@ namespace travellingeuro.ViewModels
 
         private async void ShowSpecimenAsyncMethod()
         {
-            await NavigationService.NavigateAsync("SpecimenPage", useModalNavigation: true);
+            var param = new NavigationParameters();
+            await NavigationService.NavigateAsync("SpecimenPage", param,true, true);
         }
 
         private async void NavigateToUploadsMethod()
@@ -355,21 +375,124 @@ namespace travellingeuro.ViewModels
             if (SerialNumber == null | SelectedPlace == null | Comments == null | Email == null)
 
             {
-                await dialogService.ShowAlertAsync("Review your entry", Resources.ErrorTitle, Resources.DialogOk);
+                await dialogService.ShowAlertAsync("Review your entry. Fill all entries please", Resources.ErrorTitle, Resources.DialogOk);
             }
             else
             {
+                //check for validity of value
                 Checkvalue checkvalue = new Checkvalue();
                 bool result = checkvalue.Checknumber(SerialNumber);
-                if (!string.IsNullOrEmpty(SerialNumber) && result == true)
+                //check for validity of email
+                Emailvalidator emailvalidator = new Emailvalidator();
+                bool validemail = emailvalidator.IsValid(Email);
+                if (validemail == false)
+
                 {
+                    await dialogService.ShowAlertAsync($"{Email} " + emailvalidator.NotValidMessage, Resources.ErrorTitle, Resources.DialogOk);
+                }
+
+
+                if (!string.IsNullOrEmpty(SerialNumber) && result == true && validemail == true)
+                {
+                    await LogUserAsync();
                     await AddNoteAsync();
                 }
                 else
                 {
                     await dialogService.ShowAlertAsync("Review your entry", checkvalue.Message, "OK");
                 }
+
+
             }
+        }
+
+        async Task LogUserAsync()
+        {
+            try
+            {
+                IsBusy = true;
+                App.Current.Properties.Remove("token");
+                var users = await userService.GetUserEmail(Email);
+                if (users.Count == 0)
+                {
+                    await HandleUser();
+                }
+
+                App.Current.Properties["user"] = Email;
+                await App.Current.SavePropertiesAsync();
+
+            }
+            catch (HttpRequestException httpEx)
+            {
+
+                Debug.WriteLine($"[Booking Where Step] Error retrieving data: {httpEx}");
+
+                if (!string.IsNullOrEmpty(httpEx.Message))
+                {
+                    await dialogService.ShowAlertAsync(
+                        string.Format(Resources.HttpRequestExceptionMessage, httpEx.Message),
+                        Resources.HttpRequestExceptionTitle,
+                        Resources.DialogOk);
+                }
+
+            }
+            catch (ConnectivityException cex)
+            {
+
+                Debug.WriteLine($"[Booking Where Step] Connectivity Error: {cex}");
+                await dialogService.ShowAlertAsync("There is no Internet conection, try again later.", "Error", "Ok");
+
+            }
+
+            catch (Exception ex)
+            {
+                await dialogService.ShowAlertAsync(ex.Message, Resources.ErrorTitle, Resources.DialogOk);
+            }
+
+            finally
+            {
+                IsBusy = false;
+            }
+
+        }
+
+        async Task HandleUser()
+        {
+            try
+            {
+                Users newuser = new Users() { Email = Email, EmailConfirmed = 1, Keeplogged = 1, Keepmeinformed = 1, Role = "user", Alias = "Anonymous" };
+                var response = await userService.PostUser(newuser);
+                App.Current.Properties["user"] = Email;
+                await App.Current.SavePropertiesAsync();
+            }
+            catch (HttpRequestException httpEx)
+            {
+                if (!string.IsNullOrEmpty(httpEx.Message))
+                {
+                    await dialogService.ShowAlertAsync(
+                        string.Format(Resources.HttpRequestExceptionMessage, httpEx.Message),
+                        Resources.HttpRequestExceptionTitle,
+                        Resources.DialogOk);
+                }
+
+            }
+            catch (ConnectivityException cex)
+            {
+                Debug.WriteLine($"[Booking Where Step] Connectivity Error: {cex}");
+                await dialogService.ShowAlertAsync("There is no Internet conection, try again later.", "Error", "Ok");
+
+            }
+            catch (Exception ex)
+            {
+
+                await dialogService.ShowAlertAsync(ex.Message, Resources.ErrorTitle, Resources.DialogOk);
+            }
+
+            finally
+            {
+                IsBusy = false;
+            }
+
         }
 
         async Task AddNoteAsync()
@@ -378,7 +501,7 @@ namespace travellingeuro.ViewModels
             {
                 IsBusy = true;
                 var note = await addnoteService.GetSearchAsync(SerialNumber);
-                if (note.Any()) //note exists in datbase
+                if (note.Any()) //note exists in database
                 {
                     await Newupload(note.FirstOrDefault());
                 }
@@ -392,11 +515,10 @@ namespace travellingeuro.ViewModels
                         var newnote = new Notes { SerialNumber = SerialNumber.ToUpper(), Value = (string)NoteValue, MintsId = Id };
                         await addnoteService.PostNote(newnote);
                         await dialogService.ShowAlertAsync(
-                            $"{newnote.Value} € bill {newnote.SerialNumber} Has been added",
-                            "Congratulations",
+                            $"  {newnote.Value}  €  bill {newnote.SerialNumber} has been added",
+                            "New Bill",
                             "OK");
                         await Addmintupload(Mints.FirstOrDefault());
-
                     }
                 }
 
@@ -441,6 +563,7 @@ namespace travellingeuro.ViewModels
                 IsBusy = true;
                 var notes = await addnoteService.GetSearchAsync(SerialNumber);
                 var id = notes.FirstOrDefault().Id;
+                var mintname = new MintPicker();
                 Uploads mintsupload = new Uploads
                 {
                     UsersId = 11,
@@ -450,15 +573,16 @@ namespace travellingeuro.ViewModels
                     Latitude = mint.Latitude,
                     Address = mint.Address,
                     Location = mint.Location,
-                    Comments = mint.Comments
+                    Comments = mint.Comments,
+                    Name=$"National Bank of {mintname.Picker(mint.Id)}"
                 };
                 await addnoteService.PostUpload(mintsupload);
 
-                await dialogService.ShowAlertAsync(
-                $"New note added in {mintsupload.Address}\n" +
-                $" {mintsupload.Comments}",
-                "Congratulations",
-                "OK");
+                //await dialogService.ShowAlertAsync(
+                //$"New note added in {mintsupload.Address}\n" +
+                //$" {mintsupload.Comments}",
+                //"Congratulations",
+                //"OK");
 
                 await Addclientupload(notes.FirstOrDefault());
             }
@@ -602,6 +726,7 @@ namespace travellingeuro.ViewModels
         {
             try
             {
+                IsViewonMapEnable = true;
                 IsBusy = true;
                 string client = (string)App.Current.Properties["user"];
                 var user = await userService.GetUserEmail(client);
@@ -615,14 +740,17 @@ namespace travellingeuro.ViewModels
                     Latitude = (float)SelectedPlace.Latitude,
                     Address = SelectedPlace.Address,
                     Location = SelectedPlace.Location,
+                    Name=SelectedPlace.Name,
                     Comments = Comments
                 };
 
                 await addnoteService.PostUpload(clientupload);
 
                 await dialogService.ShowAlertAsync(
-                    $"{clientupload.Address} € bill {clientupload.Comments} Has been added",
-                    "Congratulations",
+                    $"  {note.Value} € bill in  {clientupload.Address} \n " +
+                    $"with comments: {clientupload.Comments} \n" +
+                    $"Has been added",
+                    "New location for bill",
                     "OK");
 
                 await NotificationService.SendNotification(SerialNumber);
@@ -658,7 +786,7 @@ namespace travellingeuro.ViewModels
             finally
             {
                 IsBusy = false;
-                IsViewonMapEnable = true;
+                
             }
 
         }
@@ -668,23 +796,14 @@ namespace travellingeuro.ViewModels
 
         }
 
-        public async void OnNavigatedTo(INavigationParameters parameters)
+        public void OnNavigatedTo(INavigationParameters parameters)
         {
-            //Assign email
-            if (App.Current.Properties.ContainsKey("user"))
-            {
-                Email = (string)App.Current.Properties["user"];
-            }
-            else
-            {
-                await dialogService.ShowAlertAsync("Please confirm your device first", Resources.ErrorTitle, Resources.DialogOk);
-                await NavigationService.NavigateAsync("PhoneNumberPage");
-            }
-
+           
+            
             //check parameters for "SerialNumber"
             SerialNumber = (string)parameters["SerialNumber"] ?? null;
 
-            IsViewonMapEnable = false;
+            
         }
     }
 

@@ -78,7 +78,8 @@ namespace travellingeuro.ViewModels
                 var response = await smsService.SendSMSAsync(PhoneNumber);
                 if (!response.Equals(Resources.TwillioError))
                 {
-                    await navigationService.NavigateAsync("TokenPage", useModalNavigation: true);
+                    var param = new NavigationParameters();
+                    await navigationService.NavigateAsync("TokenPage", param,true, true);
                 }
 
             }

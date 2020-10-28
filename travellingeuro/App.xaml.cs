@@ -6,6 +6,7 @@ using Prism.Ioc;
 using travellingeuro.Services.AddNote;
 using travellingeuro.Services.Dialogs;
 using travellingeuro.Services.Notification;
+
 using travellingeuro.Services.Request;
 using travellingeuro.Services.Scan;
 using travellingeuro.Services.SearchNote;
@@ -34,8 +35,10 @@ namespace travellingeuro
         protected override async void OnInitialized()
         {
             InitializeComponent();
-            AppCenter.Start("android=93ae46ad-ed4c-40ca-82df-e12c3fdab482;ios=fc96f24b-04b6-490d-a920-7ed0956a5bee",
+            AppCenter.Start($"android={AppSettings.AppCenterAndroidKey};ios={AppSettings.AppCenteriOSKey}",
                 typeof(Analytics), typeof(Crashes));
+
+
 
             await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
@@ -54,6 +57,8 @@ namespace travellingeuro
             containerRegistry.RegisterForNavigation<ViewUpload, ViewUploadViewModel>();
             containerRegistry.RegisterForNavigation<Stats, StatsViewModel>();
             containerRegistry.RegisterForNavigation<MapNotePage, MapNotePageViewModel>();
+            
+
 
             //Services
             containerRegistry.Register<IDialogService, DialogService>();
@@ -65,6 +70,8 @@ namespace travellingeuro
             containerRegistry.Register<IAddNoteService, AddNoteService>();
             containerRegistry.Register<ISearchPlace, SearchPlace>();
             containerRegistry.Register<INotificationService, NotificationService>();
+            
+
             
         }
     }

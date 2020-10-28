@@ -82,6 +82,7 @@ namespace travellingeuro.ViewModels
                         Address = upload.Address,
                         Comments = upload.Comments,
                         UploadDate = upload.UploadDate,
+                        Name=upload.Name,
                         ItemImage = uri
                     };
                     exup.Add(extended);

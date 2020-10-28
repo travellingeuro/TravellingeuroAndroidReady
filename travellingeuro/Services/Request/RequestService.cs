@@ -1,23 +1,27 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using travellingeuro.Services.Dialogs;
 using travellingeuro.Exceptions;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace travellingeuro.Services.Request
 {
     public class RequestService : IRequestService
     {
+       
         readonly JsonSerializerSettings serializerSettings;
 
-        public RequestService()
+
+        public RequestService(IDialogService dialogService)
         {
+            
             serializerSettings = new JsonSerializerSettings
             {
                 ContractResolver = new CamelCasePropertyNamesContractResolver(),
@@ -79,12 +83,14 @@ namespace travellingeuro.Services.Request
             {
                 var content = await response.Content.ReadAsStringAsync();
 
-                if (response.StatusCode == HttpStatusCode.Forbidden || response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.NotFound)
+                if (response.StatusCode == HttpStatusCode.Forbidden || response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.NotFound )
                 {
-                    throw new Exception(content);
-                }
 
-                throw new HttpRequestException(content);
+                    //throw new Exception(content);
+                    return;
+
+                }
+                return;
             }
 
 

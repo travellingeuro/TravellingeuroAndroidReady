@@ -125,8 +125,18 @@ namespace travellingeuro.ViewModels
             {
                 IsBusy = true;
                 Uploads = await SearchNote.GetSearchAsync(SerialNumber);
-                var parameters = new NavigationParameters { { "Uploads", Uploads } };
-                await NavigationService.NavigateAsync("ViewUpload", parameters);
+                if (Uploads != null)
+                {
+                    var parameters = new NavigationParameters { { "Uploads", Uploads } };
+                    await NavigationService.NavigateAsync("ViewUpload", parameters);
+                }
+                else
+                {
+                    await DialogService.ShowAlertAsync(Resources.NotExisiting, Resources.ErrorTitle, Resources.DialogOk);
+                    var navparam = new NavigationParameters { { "SerialNumber", SerialNumber } };
+                    await NavigationService.NavigateAsync("AddNote", navparam);
+
+                }
 
             }
             catch (HttpRequestException httpEx)
@@ -167,7 +177,8 @@ namespace travellingeuro.ViewModels
 
         private async void ShowSpecimenAsyncMethod()
         {
-            await NavigationService.NavigateAsync("SpecimenPage", useModalNavigation: true);
+            var param = new NavigationParameters();
+            await NavigationService.NavigateAsync("SpecimenPage", param, true,true);
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters)

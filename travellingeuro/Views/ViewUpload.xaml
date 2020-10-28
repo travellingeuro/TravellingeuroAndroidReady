@@ -33,10 +33,16 @@
         </OnPlatform>
     </ContentPage.Padding>
 
-    <ContentPage.ControlTemplate>
-        <ControlTemplate>
+    
+<ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />               
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-            <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}">
+            <!--Heading-->
+            <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}" Grid.Row="0">
 
                 <controls:AdMobView />
 
@@ -52,7 +58,7 @@
                         </Label.GestureRecognizers>
                     </Label>
 
-                    <!-- Title -->
+                     <!--Title--> 
                     <Label 
                         Text="Tracking"
                         TextColor="{DynamicResource Gray-900}"
@@ -62,19 +68,17 @@
                         HorizontalOptions="Center" />
 
                 </StackLayout>
-                <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-200}"/>
-                <ContentPresenter />
+                <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-200}"/>               
             </StackLayout>
-        </ControlTemplate>
-    </ContentPage.ControlTemplate>
-    <ContentPage.Content>
 
+    
 
-        <Grid RowSpacing="0">
+    <!--Listview-->
+        <Grid RowSpacing="0" Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="8*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <ActivityIndicator 
@@ -199,8 +203,17 @@
                                                                              Default=-1}"
                                                     Text="{Binding UploadDate, StringFormat='{}{0:dd/MM/yyyy}'}"
                                                     TextColor="{DynamicResource Gray-800}" />
+                                            
+                                                <!--  Upload name  -->
+                                                <Label 
+                                                    FontFamily="{StaticResource Montserrat-Medium}"
+                                                    FontSize="{DynamicResource Ten}"
+                                                    LineHeight="{OnPlatform Android=1.25,
+                                                                        Default=-1}"
+                                                    Text="{Binding Name}"
+                                                    TextColor="{DynamicResource PrimaryColor}" />
 
-                                            <!--  Upload address  -->
+                                                <!--  Upload address  -->
                                             <Label 
                                                     FontFamily="{StaticResource Montserrat-Medium}"
                                                     FontSize="{DynamicResource Eight}"
@@ -230,6 +243,9 @@
                 </ListView>
             </StackLayout>
         </Grid>
+    </Grid>
+    
+       
     </ContentPage.Content>
 </ContentPage>
 

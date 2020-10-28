@@ -72,6 +72,6 @@
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Needed to pick a photo of a note serial number. This will not be shared.</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0</string>
+	<string>2.1</string>
 </dict>
 </plist>
