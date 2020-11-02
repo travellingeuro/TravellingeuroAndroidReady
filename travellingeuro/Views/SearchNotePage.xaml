@@ -6,7 +6,7 @@
              xmlns:converter="clr-namespace:travellingeuro.Converters" 
              xmlns:controls="clr-namespace:travellingeuro.Controls" 
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" 
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" xmlns:ads="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              prism:ViewModelLocator.AutowireViewModel="True"
              NavigationPage.HasNavigationBar="False"      
              x:Class="travellingeuro.Views.SearchNotePage"
@@ -63,6 +63,16 @@
                 <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray-200}"/>
 
                 <ContentPresenter />
+                <!--MTad view-->
+                <ads:MTAdView IsVisible="true" VerticalOptions="StartAndExpand" ComplyFamilyPolicies="True" PersonalizedAds="True">
+                    <ads:MTAdView.HeightRequest>
+                        <x:OnIdiom>
+                            <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                            <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                            <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                        </x:OnIdiom>
+                    </ads:MTAdView.HeightRequest>
+                </ads:MTAdView>
 
             </StackLayout>
         </ControlTemplate>

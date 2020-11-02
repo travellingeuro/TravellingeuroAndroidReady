@@ -18,7 +18,7 @@
 
     <StackLayout>
         
-<!--admob view-->
+<!--MTad view-->
         <ads:MTAdView IsVisible="true" VerticalOptions="StartAndExpand" ComplyFamilyPolicies="True" PersonalizedAds="True">
             <ads:MTAdView.HeightRequest>
                 <x:OnIdiom>
