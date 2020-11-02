@@ -8,7 +8,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using travellingeuro.Controls;
 using travellingeuro.Exceptions;
+using travellingeuro.Helper;
 using travellingeuro.Models;
 using travellingeuro.Services.Dialogs;
 using travellingeuro.Services.SearchNote;
@@ -125,6 +127,7 @@ namespace travellingeuro.ViewModels
         {
             if(NoteValue!=null && Uploads != null)
             {
+                var imagepicker = new ImagePicker();
                 int.TryParse((string)NoteValue, out int value);
                 //selects Uploads with a NoteValue           
                 var selectedvaluenotes = Uploads.Where(v => v.Value == value);
@@ -138,13 +141,50 @@ namespace travellingeuro.ViewModels
                 //transforms to Marker list
                 foreach (var upload in selectedvaluenotes)
                 {
-                    var marker = new MapMarker();
-                    marker.Label = upload.Value.ToString();
-                    marker.Latitude = upload.Latitude.ToString();
-                    marker.Longitude = upload.Longitude.ToString();
+                    var marker = new CustomMarker
+                    {
+                        Latitude = upload.Latitude.ToString(),
+                        Longitude = upload.Longitude.ToString(),
+                        Label = upload.Comments,
+                        Address = upload.Address,
+                        Date = upload.UploadDate,
+                        Image = imagepicker.Imagepicker(upload.Value),
+                        Name = upload.Name
+
+                    };
+ 
                     ViewMarkers.Add(marker);
                 }
             }  
+        }
+        private void SetInitialMarkers()
+        {
+
+            if (Uploads != null)
+            {
+                var imagepicker = new ImagePicker();
+
+                //show all notes markers in the map
+                //empty ViewMarkers
+                if (ViewMarkers.Any())
+                {
+                    ViewMarkers.Clear();
+                }
+                foreach (var upload in Uploads)
+                {
+                    var marker = new CustomMarker
+                    {
+                        Latitude = upload.Latitude.ToString(),
+                        Longitude = upload.Longitude.ToString(),
+                        Label = upload.Comments,
+                        Address = upload.Address,
+                        Date = upload.UploadDate,
+                        Image = imagepicker.Imagepicker(upload.Value),
+                        Name = upload.Name
+                    };
+                    ViewMarkers.Add(marker);
+                }
+            }
         }
 
 
@@ -157,7 +197,8 @@ namespace travellingeuro.ViewModels
         {
 
             Uploads = Task.Run(GetUploads).Result;
-            TotalNotes= Uploads.Select(s => s.SerialNumber).Distinct().Count();
+            SetInitialMarkers();
+            TotalNotes = Uploads.Select(s => s.SerialNumber).Distinct().Count();
         }
 
 
