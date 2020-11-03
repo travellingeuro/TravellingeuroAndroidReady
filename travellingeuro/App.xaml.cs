@@ -67,8 +67,6 @@ namespace travellingeuro
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<PresentationPage, PresentationPageViewModel>();
             containerRegistry.RegisterForNavigation<SearchNotePage, SearchNotePageViewModel>();
-            containerRegistry.RegisterForNavigation<PhoneNumberPage, PhoneNumberPageViewModel>();
-            containerRegistry.RegisterForNavigation<TokenPage, TokenPageViewModel>();
             containerRegistry.RegisterForNavigation<SpecimenPage, SpecimenPageViewModel>();
             containerRegistry.RegisterForNavigation<AddNote, AddNoteViewModel>();
             containerRegistry.RegisterForNavigation<ViewUpload, ViewUploadViewModel>();

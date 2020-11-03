@@ -35,7 +35,7 @@
         <ControlTemplate>
             <StackLayout Spacing="0" BackgroundColor="{DynamicResource Gray-White}">
 
-                <controls:AdMobView />
+                
                 
                 <StackLayout Orientation="Horizontal">
                     
