@@ -21049,6 +21049,9 @@ namespace travellingeuro.Droid
 			// aapt resource value: 0x7F07018A
 			public const int tooltip_frame_light = 2131165578;
 			
+			// aapt resource value: 0x7F07018B
+			public const int videoad = 2131165579;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

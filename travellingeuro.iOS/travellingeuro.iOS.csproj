@@ -13,7 +13,7 @@
     <AssemblyName>travellingeuro.iOS</AssemblyName>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <ProvisioningType>automatic</ProvisioningType>
+    <ProvisioningType>manual</ProvisioningType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,11 +35,11 @@
     <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchLink>Full</MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>Apple Development: Pedro Crespo Martin (5A32Q6VL55)</CodesignKey>
-    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignProvision>My_Development</CodesignProvision>
     <MtouchExtraArgs>--optimize=experimental-xforms-product-type</MtouchExtraArgs>
     <OptimizePNGs>true</OptimizePNGs>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
@@ -47,6 +47,7 @@
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <MtouchDebug>true</MtouchDebug>
     <DeviceSpecificBuild>false</DeviceSpecificBuild>
+    <MtouchFloat32>false</MtouchFloat32>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,7 +62,7 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchLink>None</MtouchLink>
     <IOSDebugOverWiFi>true</IOSDebugOverWiFi>
     <CodesignProvision>Bueno</CodesignProvision>
   </PropertyGroup>
@@ -75,7 +76,7 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution: Pedro Crespo Martin (5TB75L3C7K)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchLink>None</MtouchLink>
     <OptimizePNGs>true</OptimizePNGs>
     <MtouchUseLlvm>false</MtouchUseLlvm>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
@@ -320,6 +321,15 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\pin%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\videoad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\videoad%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\videoad%403x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

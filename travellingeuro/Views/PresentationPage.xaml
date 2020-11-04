@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:travellingeuro.MarkupExtension"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
              xmlns:controls="clr-namespace:travellingeuro.Controls"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
              xmlns:ads="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              x:Class="travellingeuro.Views.PresentationPage"                 
              prism:ViewModelLocator.AutowireViewModel="True"
@@ -136,15 +137,18 @@
         </ScrollView>
 
 
-        <StackLayout VerticalOptions="EndAndExpand" Orientation="Vertical">
-            <Label
-                HorizontalOptions="Center"
-                Style="{StaticResource LabelStyle}"
-                Text="Show Video Ad">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                </Label.GestureRecognizers>
-            </Label>
+        <StackLayout >
+
+            <buttons:SfButton 
+                Text="Show Video Ad" 
+                ImageSource="videoad.png" 
+                BackgroundColor="{StaticResource Gray-100}"
+                ShowIcon="True"   
+                HeightRequest="50"
+               ImageAlignment="End" 
+                Clicked="TapGestureRecognizer_Tapped"                                
+                Style="{StaticResource SfButtonStyle}">                
+            </buttons:SfButton>
 
             <!--MTad view-->
             <ads:MTAdView IsVisible="true" VerticalOptions="StartAndExpand" ComplyFamilyPolicies="True" PersonalizedAds="True">
