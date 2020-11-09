@@ -118,6 +118,7 @@
     <MtouchExtraArgs>--optimize=force-rejected-types-removal  --optimize=experimental-xforms-product-type</MtouchExtraArgs>
     <MtouchFastDev>false</MtouchFastDev>
     <MtouchFloat32>false</MtouchFloat32>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
