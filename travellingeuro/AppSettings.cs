@@ -11,10 +11,12 @@ namespace travellingeuro
         //google ads id's
         const string defaultAndroidAds = "ca-app-pub-9800707284712065/3418493654";
         const string defaultIosAds = "ca-app-pub-9800707284712065/6044656994";
-        const string defaultInterstitialAndroid = "ca-app-pub-3940256099942544/8691691433"; //sample
-        const string defaultInterstitialiOS = "ca-app-pub-3940256099942544/5135589807"; //sample
-        const string defaultVideoAndroid = "ca-app-pub-3940256099942544/5224354917"; //sample
-        const string defaultVideoiOS = "ca-app-pub-3940256099942544/1712485313"; //sample
+
+        const string defaultInterstitialAndroid = "ca-app-pub-9800707284712065/5065755159";
+        const string defaultInterstitialiOS = "ca-app-pub-9800707284712065/3351549930";
+
+        const string defaultVideoAndroid = "ca-app-pub-3940256099942544/5224354917";
+        const string defaultVideoiOS = "ca-app-pub-9800707284712065/2439591810";
 
 
         //AppsFlyer DeveloperKey
