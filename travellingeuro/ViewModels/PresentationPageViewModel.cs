@@ -37,19 +37,12 @@ namespace travellingeuro.ViewModels
         }
 
         private async void NavigateToAddNoteMethod()
+
         {
-
-
-            if (App.Current.Properties.ContainsKey("user"))
-            {
-                await navigationService.NavigateAsync("AddNote");
-            }
-            else
-            {
-                await navigationService.NavigateAsync("PhoneNumberPage");
-            }
+            await navigationService.NavigateAsync("AddNote");
         }
 
+        
         private async void NavigateToSearchNotePageMethod()
         {
             await navigationService.NavigateAsync("SearchNotePage");

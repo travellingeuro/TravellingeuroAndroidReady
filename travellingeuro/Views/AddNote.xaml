@@ -76,6 +76,28 @@
     <ScrollView>
         
         <StackLayout BackgroundColor="{DynamicResource Gray-100}" Spacing="0" Padding="16,24">
+
+            <!--Email Entry-->
+            <Label
+                FontFamily="{StaticResource Montserrat-Medium}"
+                Margin="0,24,0,4"
+                HeightRequest="18"
+                FontSize="{DynamicResource Twelve}"
+                Text="Email:"
+                TextColor="{DynamicResource Gray-800}"
+                IsVisible="{Binding ShowEmailEntry}"/>
+
+            <border:SfBorder BorderColor="{Binding Source={x:Reference EmailEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}" 
+                                 Style="{StaticResource BusinessFormBorderStyle}" IsVisible="{Binding ShowEmailEntry}">
+
+                <controls:BorderlessEntry
+                            x:Name="EmailEntry"
+                            Placeholder="Email"
+                            Text="{Binding Email}"
+                            Style="{StaticResource EntryTextBoxStyle}"
+                            IsVisible="{Binding ShowEmailEntry}"/>
+            </border:SfBorder>
+            
             <!-- Location -->
             <Label
                 FontFamily="{StaticResource Montserrat-Medium}"

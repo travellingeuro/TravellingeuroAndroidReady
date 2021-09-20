@@ -85,6 +85,13 @@ namespace travellingeuro.ViewModels
             set { SetProperty(ref email, value); }
         }
 
+        private bool showemailentry;
+        public bool ShowEmailEntry
+        {
+            get { return showemailentry; }
+            set { SetProperty(ref showemailentry, value); }
+        }
+
         private string comments;
         public string Comments
         {
@@ -177,6 +184,7 @@ namespace travellingeuro.ViewModels
             this.addnoteService = addNoteService;
             this.searchNoteService = searchNoteSercice;
             this.NotificationService = notificationService;
+            this.ShowEmailEntry = emailexist();
             this.ShowSpecimenCommand = new DelegateCommand(ShowSpecimenAsyncMethod);
             this.ScanCommand = new DelegateCommand(async () => await ScanAsyncMethod());
             this.AddCommand = new DelegateCommand(AddMethod);
@@ -187,7 +195,15 @@ namespace travellingeuro.ViewModels
 
         }
 
-
+        private bool emailexist()
+        {
+            if (App.Current.Properties.ContainsKey("user"))
+            {
+                Email = (string)App.Current.Properties["user"];
+                return false;
+            }
+            return true;
+        }
 
         private void AddAnotherMethod()
         {
@@ -345,16 +361,113 @@ namespace travellingeuro.ViewModels
             }
             else
             {
+                //check validaity of value
                 Checkvalue checkvalue = new Checkvalue();
                 bool result = checkvalue.Checknumber(SerialNumber);
-                if (!string.IsNullOrEmpty(SerialNumber) && result == true)
+                //check validity of email
+                Emailvalidator emailvalidator = new Emailvalidator();
+                bool validemail = emailvalidator.IsValid(Email);
+                if (validemail == false)
                 {
+                    await dialogService.ShowAlertAsync($"{Email} " + emailvalidator.NotValidMessage, Resources.ErrorTitle, Resources.DialogOk);
+                }
+
+                if (!string.IsNullOrEmpty(SerialNumber) && result == true && validemail==true)
+                {
+                    await LogUserAync();
                     await AddNoteAsync();
                 }
                 else
                 {
                     await dialogService.ShowAlertAsync("Review your entry", checkvalue.Message, "OK");
                 }
+            }
+        }
+
+        async Task LogUserAync()
+        {
+            try
+            {
+                IsBusy = true;
+                App.Current.Properties.Remove("token");
+                var users = await userService.GetUserEmail(Email);
+                if (users.Count == 0)
+                {
+                    await HandleUser();
+                }
+
+                App.Current.Properties["user"] = Email;
+                await App.Current.SavePropertiesAsync();
+
+            }
+            catch (HttpRequestException httpEx)
+            {
+
+                Debug.WriteLine($"[Booking Where Step] Error retrieving data: {httpEx}");
+
+                if (!string.IsNullOrEmpty(httpEx.Message))
+                {
+                    await dialogService.ShowAlertAsync(
+                        string.Format(Resources.HttpRequestExceptionMessage, httpEx.Message),
+                        Resources.HttpRequestExceptionTitle,
+                        Resources.DialogOk);
+                }
+
+            }
+            catch (ConnectivityException cex)
+            {
+
+                Debug.WriteLine($"[Booking Where Step] Connectivity Error: {cex}");
+                await dialogService.ShowAlertAsync("There is no Internet conection, try again later.", "Error", "Ok");
+
+            }
+
+            catch (Exception ex)
+            {
+                await dialogService.ShowAlertAsync(ex.Message, Resources.ErrorTitle, Resources.DialogOk);
+            }
+
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        async Task HandleUser()
+        {
+            try
+            {
+                Users newuser = new Users() { Email = Email, EmailConfirmed = 1, Keeplogged = 1, Keepmeinformed = 1, Role = "user", Alias = "Anonymous" };
+                var response = await userService.PostUser(newuser);
+                App.Current.Properties["user"] = Email;
+                await App.Current.SavePropertiesAsync();
+            }
+            catch (HttpRequestException httpEx)
+            {
+                if (!string.IsNullOrEmpty(httpEx.Message))
+                {
+                    await dialogService.ShowAlertAsync(
+                        string.Format(Resources.HttpRequestExceptionMessage, httpEx.Message),
+                        Resources.HttpRequestExceptionTitle,
+                        Resources.DialogOk);
+                }
+
+            }
+            catch (ConnectivityException cex)
+            {
+                Debug.WriteLine($"[Booking Where Step] Connectivity Error: {cex}");
+                await dialogService.ShowAlertAsync("There is no Internet conection, try again later.", "Error", "Ok");
+
+            }
+            catch (Exception ex)
+            {
+
+                await dialogService.ShowAlertAsync(ex.Message, Resources.ErrorTitle, Resources.DialogOk);
+            }
+
+            finally
+            {
+                IsBusy = false;
             }
         }
 
@@ -654,23 +767,16 @@ namespace travellingeuro.ViewModels
 
         }
 
-        public async void OnNavigatedTo(INavigationParameters parameters)
+        public void OnNavigatedTo(INavigationParameters parameters)
         {
-            //Assign email
-            if (App.Current.Properties.ContainsKey("user"))
-            {
-                Email = (string)App.Current.Properties["user"];
-            }
-            else
-            {
-                await dialogService.ShowAlertAsync("Please confirm your device first", Resources.ErrorTitle, Resources.DialogOk);
-                await NavigationService.NavigateAsync("PhoneNumberPage");
-            }
 
             //check parameters for "SerialNumber"
             SerialNumber = (string)parameters["SerialNumber"] ?? null;
 
-            IsViewonMapEnable = false;
+            if (!string.IsNullOrEmpty(SerialNumber))
+            {
+                SerialNumber = String.Concat(SerialNumber.Where(c => !Char.IsWhiteSpace(c)));
+            }
         }
     }
 
