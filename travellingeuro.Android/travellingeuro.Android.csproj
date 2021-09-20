@@ -70,6 +70,12 @@
     <AndroidSupportedAbis>
     </AndroidSupportedAbis>
     <MandroidI18n />
+    <AndroidKeyStore>false</AndroidKeyStore>
+    <AndroidSigningKeyStore>C:\Users\Pedro Crespo Martin\source\repos\travellingeuro\TravellingeuroAndroidReady\travellingeuro.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>Gustavo98</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>
+    </AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>Gustavo98</AndroidSigningKeyPass>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
