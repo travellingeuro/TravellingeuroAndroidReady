@@ -59,12 +59,12 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>Apple Development: Pedro Crespo Martin (5A32Q6VL55)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>None</MtouchLink>
     <IOSDebugOverWiFi>true</IOSDebugOverWiFi>
-    <CodesignProvision>Bueno</CodesignProvision>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -74,7 +74,7 @@
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution: Pedro Crespo Martin (5TB75L3C7K)</CodesignKey>
+    <CodesignKey>Apple Distribution: Pedro Crespo Martin (5TB75L3C7K)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>None</MtouchLink>
     <OptimizePNGs>true</OptimizePNGs>
@@ -82,7 +82,7 @@
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <MtouchNoSymbolStrip>false</MtouchNoSymbolStrip>
-    <CodesignProvision>My_Distribution</CodesignProvision>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
     <MtouchExtraArgs>--optimize=force-rejected-types-removal  --optimize=experimental-xforms-product-type</MtouchExtraArgs>
     <MtouchInterpreter>
     </MtouchInterpreter>
