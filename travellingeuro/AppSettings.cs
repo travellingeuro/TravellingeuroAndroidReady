@@ -25,13 +25,13 @@ namespace travellingeuro
         //Cognitive services
         const string defaultCognitiveServiceKey = "27a4453a28ab4df8af50d22fed37bcc0";
         //Places and maps
-        const string defaultGooglePlacesApiKey = "AIzaSyAA5f_usWVL2jbldPd4KDKFFZIrMuKYD6U";
+        const string defaultGooglePlacesApiKey = "*****************";
         //Syncfusion
-        const string defaultSyncfusionKey = "MzQzMjA2QDMxMzgyZTMzMmUzMElQeW16VEp2RDJaRHA4K2NMVkJvb21Ra3lUUUgzRTNiNG9FZzNaTTkwRnc9";
+        const string defaultSyncfusionKey = "********************";
 
         //AppCenter
-        const string defaultAppCenterAndroidKey = "93ae46ad-ed4c-40ca-82df-e12c3fdab482";
-        const string defaultAppCenteriOSKey = "fc96f24b-04b6-490d-a920-7ed0956a5bee";
+        const string defaultAppCenterAndroidKey = "***********************";
+        const string defaultAppCenteriOSKey = "*****************************";
 
         //Display only one interstitial per sesion
         const bool defaultshowintertitial = true;
